@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>05 - Tree - Árvore de diretórios - Universo Linux</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = true;
+      var tagTree = [{'reference': ['choice-exercise', 'parsons-exercise', 'text-exercise']}, {'grandparent-tag': [{'parent-tag': ['child-tag']}]}];
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../../css/termynal.css"><link rel="stylesheet" href="../../../termynal.css">
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../../.."
+           title="Universo Linux"
+           class="ah-logo"
+           aria-label="Universo Linux">
+          Universo Linux
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../01-intro/intro/">01 - Introdução</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../02-install/install_ssh/">02 - Instalação SSH</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../03-connection/ssh_aws/">03 - Conexão SSH</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../04-folders/files_folders/">04 - Arquivos e Pastas</a>
+    </li>
+  
+
+            
+              
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">05 - Tree - Árvore de diretórios</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#update-do-sistema">Update do sistema</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#upgrade-do-sistema">Upgrade do sistema</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#instalacao">Instalação</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#uso-do-tree">Uso do tree</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../06-exercises/exercises/">06 - Exercícios</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../07-web-server/nginx/">07 - Servidor Web</a>
+    </li>
+  
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="arvore-de-diretorios">Árvore de diretórios</h1>
+<p>Vamos verificar como exibir, no terminal, quais pastas e arquivos estão dentro de quais pastas, construindo uma árvore.</p>
+<p>O comando <code>tree</code> pode nos ajudar nesta tarefa. Entretanto, ao tentar executá-lo:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>tree
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">Command &#39;tree&#39; not found...</span>
+</code></pre></div>
+
+</div>
+<p><br></p>
+<h2 id="update-do-sistema">Update do sistema</h2>
+<p>Será necessário instalar o <code>tree</code>. Mas antes, precisamos descobrir os pacotes disponíveis para instalação.</p>
+<p>O comando <code>sudo apt update</code> é usado no sistema operacional Ubuntu (e outras distribuições baseadas no Debian) para atualizar a lista de pacotes disponíveis nos repositórios configurados no sistema. Ele verifica se há atualizações disponíveis para os pacotes instalados e sincroniza as informações locais com os servidores de repositórios, garantindo que você tenha acesso às versões mais recentes dos pacotes.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>sudo</code> no Linux permite que um usuário execute um comando com privilégios de superusuário (<code>root</code>), fornecendo a autorização necessária para realizar <strong>tarefas administrativas</strong> e acessar arquivos ou comandos restritos ao usuário <code>root</code>.</p>
+<p>Ou seja, nosso usuário <code>boss</code> vai usar <code>sudo</code> quando precisar, por exemplo, instalar novos programas no Linux!</p>
+</div>
+<p>Faça <code>sudo apt update</code>:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
+
+</div>
+<p><br></p>
+<h2 id="upgrade-do-sistema">Upgrade do sistema</h2>
+<p>Vamos fazer também o <code>upgrade</code>, garantindo que todos os pacotes atualmente instalados sejam atualizados:</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Execute o comando abaixo e aperte <strong>ENTER</strong> (ou digite <strong>Y e ENTER</strong>) ao ser questionado se deseja continuar.</p>
+</div>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</code></pre></div>
+
+</div>
+<p><br></p>
+<h2 id="instalacao">Instalação</h2>
+<p>Agora podemos fazer a instalação do <code>tree</code>:</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Pode confirmar com <strong>ENTER</strong> ou <strong>Y + ENTER</strong> caso receba pedido de confirmação da instalação!</p>
+</div>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>tree
+</code></pre></div>
+
+</div>
+<p><br></p>
+<h2 id="uso-do-tree">Uso do <code>tree</code></h2>
+<p>Volte para pasta de usuário em <code>/home/boss</code>. Você pode fazer isto de três maneiras:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Alternativa 1</label><label for="__tabbed_1_2">Alternativa 2</label><label for="__tabbed_1_3">Alternativa 3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Como já fizemos.</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/home/boss
+</code></pre></div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Utilizando "<code>~</code>". O "<code>~</code>" representa a pasta do usuário!</p>
+<p>Então, ao fazer:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>~
+</code></pre></div>
+</div>
+<p>conseguimos navegar para <code>/home/boss</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Dica 1</p>
+<p>Note que, ao fazer <strong>SSH</strong>, o terminal contém <code>boss@ip-172-31-9-133:~$</code> onde:</p>
+<ul>
+<li><code>boss</code> representa o usuário.</li>
+<li><code>@ip-172-31-9-133</code> representa "at host", então <code>ip-172-31-9-133</code> é o nome da máquina.</li>
+<li><code>~</code> representa a pasta atual (<code>/home/boss</code>). Ou seja, <code>~</code> representa a pasta do usuário atualmente logado / conectado.</li>
+</ul>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Utilizando apenas <code>cd</code>. O comando <code>cd</code>, sem nenhum argumento, vai para a pasta do usuário!</p>
+<p>Então, ao fazer:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span><span class="nb">cd</span>
+</code></pre></div>
+</div>
+<p>conseguimos navegar para <code>/home/boss</code>.</p>
+</div>
+</div>
+</div>
+<p>Então, faça a exibição da árvore de diretórios:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="go">/home/boss</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="gp">$ </span>tree
+</code></pre></div>
+
+</div>
+<p><br></p>
+<p>Você deve ver algo como:</p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="go">.</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">├── documentos</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="go">│   ├── compras.txt</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="go">│   └── livros.txt</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="go">├── downloads</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="go">│   ├── alice_wonderland.txt</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="go">│   └── calculadora</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="go">├── hello.txt</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="go">├── info.txt</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="go">└── mensagem.txt</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="go">2 directories, 7 files</span>
+</code></pre></div>
+<p>Ou seja, dentro de <code>/home/boss</code>, temos a pasta <code>documentos</code>. Dentro da pasta documentos, temos dois arquivos: <code>compras.txt</code> e <code>livros.txt</code>.</p>
+<p>Observe que <code>documentos</code> e <code>downloads</code> estão no mesmo nível da árvore. Seguindo o caminho, vemos que ambas estão dentro da mesma pasta.</p>
+<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="0" data-slug="modules/05-tree/tree/choice_1" id="choice_1_0">
+<p class="admonition-title">Exercício 1</p>
+<form class="exercise-form">
+<p>Os arquivos <code>hello.txt</code>, <code>info.txt</code> e <code>mensagem.txt</code> estão dentro da mesma pasta que <code>documentos</code> e <code>downloads</code>.</p>
+<div class="form-elements">
+<div class="alternative-set">
+  
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="0" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    Verdadeiro
+  </div>
+</label>
+
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="1" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    Falso
+  </div>
+</label>
+
+</div>
+<input class="ah-button ah-button--primary" type="submit" name="sendButton" value="Enviar" disabled />
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p>Sim! Tudo isto está em <code>/home/boss</code>.</p>
+</div>
+</div>
+<div class="admonition exercise choice tag-choice-exercise" data-answer-idx="1" data-slug="modules/05-tree/tree/choice_2" id="choice_2_0">
+<p class="admonition-title">Exercício 2</p>
+<form class="exercise-form">
+<p>O caminho completo para o arquivo <code>livros.txt</code> é <code>/home/boss/livros.txt</code>.</p>
+<div class="form-elements">
+<div class="alternative-set">
+  
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="1" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    Falso
+  </div>
+</label>
+
+<label class="alternative">
+  <div class="content">
+    <input type="radio" name="data" value="0" _="   on click    set alternative to closest .alternative    if alternative matches <:not(.selected)/> then     set selected to false    else     set selected to true    end    remove .selected from .alternative in closest .alternative-set    if selected then     remove .selected from alternative     add @disabled to <input[type='submit']/> in closest .form-elements    else     add .selected to alternative     remove @disabled from <input[type='submit']/> in closest .form-elements    end   end   ">
+    Verdadeiro
+  </div>
+</label>
+
+</div>
+<input class="ah-button ah-button--primary" type="submit" name="sendButton" value="Enviar" disabled />
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p>Não! Faltou a pasta <code>documentos</code>. O correto é <code>/home/boss/documentos/livros.txt</code>.</p>
+</div>
+</div>
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/05-tree/tree/short_1" id="short_1_0">
+<p class="admonition-title">Exercício 3<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Qual o caminho completo para o arquivo <code>hello.txt</code>?</p>
+<div class="form-elements">
+<input type="text" value="" name="data"/>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p><code>/home/boss/hello.txt</code></p>
+</div>
+</div>
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/05-tree/tree/short_2" id="short_2_0">
+<p class="admonition-title">Exercício 4<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Estando em <code>/home/boss/documentos</code>, como posso exibir o conteúdo de <code>info.txt</code>?</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Note que <code>info.txt</code> não está em <code>documentos</code>!</p>
+</div>
+<div class="form-elements">
+<input type="text" value="" name="data"/>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p>Duas alternativas de resposta são:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Alternativa 1</label><label for="__tabbed_2_2">Alternativa 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Utilizar caminho completo do arquivo:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/home/boss/documentos
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="go">/home/boss/documentos</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="gp">$ </span>cat<span class="w"> </span>/home/boss/info.txt
+</code></pre></div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Utilizar caminho relativo, fazendo uso do <code>..</code> para acessar a pasta anterior.</p>
+<p>Então, ao fazer:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/home/boss/documentos
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">/home/boss/documentos</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="gp">$ </span>cat<span class="w"> </span>../info.txt
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../../04-folders/files_folders/"
+               class="ah-prev"
+               title="04 - Arquivos e Pastas">
+              <span class="nav-label">Anterior</span>
+              <span class="nav-title">04 - Arquivos e Pastas</span>
+            </a>
+          
+          
+            <a href="../../06-exercises/exercises/"
+               class="ah-next"
+               title="06 - Exercícios">
+              <span class="nav-label">Próximo</span>
+              <span class="nav-title">06 - Exercícios</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script><script src="../../../termynal.js"></script>
+    
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

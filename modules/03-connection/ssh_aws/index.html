@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+      
+        <title>03 - Conexão SSH - Universo Linux</title>
+      
+    
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&amp;display=swap">
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <script>
+      // SETUP GLOBAL CONSTANTS
+      var base_url = '../../..';
+      
+      var telemetryEnabled = false;
+      var backendUrl = "";
+      var courseSlug = "";
+      
+      
+      var dashboardEnabled = true;
+      var tagTree = [{'reference': ['choice-exercise', 'parsons-exercise', 'text-exercise']}, {'grandparent-tag': [{'parent-tag': ['child-tag']}]}];
+      
+
+      // SETUP PLUGIN
+      window.initialized = false;
+      if (!window.initializers) window.initializers = [];
+      window.registerInitializer = (initialize) => {
+        if (window.initialized) initialize();
+        else window.initializers.push(initialize);
+      };
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://unpkg.com/hyperscript.org"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="../../../assets/js/main.js"></script>
+    
+    <link rel="stylesheet" href="../../../css/termynal.css"><link rel="stylesheet" href="../../../termynal.css">
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  <body>
+    <div class="ah-main-container">
+      <header class="ah-header">
+        <button class="ah-menu-btn ah-button ah-button--borderless"
+                aria-label="toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+</svg>
+        </button>
+        <a href="../../.."
+           title="Universo Linux"
+           class="ah-logo"
+           aria-label="Universo Linux">
+          Universo Linux
+        </a>
+        <div class="ah-header--right">
+          
+          
+          
+          <button id="resetHandoutButton">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></span>
+          </button>
+          
+
+          
+        </div>
+      </header>
+      <nav class="ah-navigation preload">
+        <div class="ah-nav-container">
+          <button class="ah-menu-btn ah-button ah-button--borderless close-menu"
+                  aria-label="close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+</svg>
+          </button>
+          <ul class="ah-nav-body">
+            
+              
+  
+    <li>
+      <a href="../../..">Home</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../01-intro/intro/">01 - Introdução</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../02-install/install_ssh/">02 - Instalação SSH</a>
+    </li>
+  
+
+            
+              
+  
+
+    <li class="active ah-togglable-item opened">
+      <span class="ah-togglable-handle">03 - Conexão SSH</span>
+      <ul>
+        
+          
+            
+            
+              <li class="ah-toc-item">
+                <a href="#realizar-conexao">Realizar conexão.</a>
+              </li>
+            
+              <li class="ah-toc-item">
+                <a href="#primeiros-comandos">Primeiros comandos</a>
+              </li>
+            
+        
+      </ul>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../04-folders/files_folders/">04 - Arquivos e Pastas</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../05-tree/tree/">05 - Tree - Árvore de diretórios</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../06-exercises/exercises/">06 - Exercícios</a>
+    </li>
+  
+
+            
+              
+  
+    <li>
+      <a href="../../07-web-server/nginx/">07 - Servidor Web</a>
+    </li>
+  
+
+            
+          </ul>
+        </div>
+      </nav>
+      <main class="ah-content ah-typeset">
+        
+          <div class="ah-title-box">
+            <ul class="ah-breadcrumbs">
+              
+                
+                <li></li>
+            </ul>
+            
+            
+          </div>
+          
+            <section class="progress-section show">
+<h1 id="conexao-ssh-com-uma-maquina-virtual-na-aws">Conexão SSH com uma Máquina Virtual na AWS</h1>
+<p>Agora que temos o cliente <strong>SSH</strong> instalado em nossos computadores, vamos utilizar o <strong>SSH</strong> para acessar uma <strong>máquina virtual</strong> Linux hospedada na AWS (serviços de computação em nuvem da Amazon).</p>
+<p><a class="glightbox" href="../../02-install/ssh.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../02-install/ssh.jpg" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Caso ainda não tenha recebido as informações de acesso, pergunte ao professor:</p>
+<ul>
+<li>O <strong>host</strong>.</li>
+<li>O <strong>usuário</strong>.</li>
+<li>A <strong>senha</strong>.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>O SSH é amplamente utilizado por administradores de sistemas e desenvolvedores para realizar tarefas como:</p>
+<ul>
+<li>Gerenciamento de servidores.</li>
+<li>Transferência de arquivos.</li>
+<li>Acesso remoto a máquinas.</li>
+</ul>
+</div>
+<h2 id="realizar-conexao">Realizar conexão.</h2>
+<p>Vamos realizar a conexão SSH. Para isto, será importante você lembrar se realizou a instação do cliente SSH:</p>
+<ul>
+<li>Direto no Windows (Opção 1):<ul>
+<li>Neste caso, utilize o <code>terminal</code> ou <code>command prompt</code>.</li>
+</ul>
+</li>
+<li>PuTTY (Opção 2):<ul>
+<li>Abra o PuTTY e configure o host.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Atenção!</p>
+<p>Em todas as etapas da aula, substitua o IP <code>3.145.1.241</code> pelo IP do host fornecido pelo professor.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Opção 1: terminal</label><label for="__tabbed_1_2">Opção 2: PuTTY</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Basta substituir o IP no comando. Utilize o IP fornecido pelo professor, o do terminal é apenas um exemplo.</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>ssh<span class="w"> </span>boss@3.145.1.241
+</code></pre></div>
+</div>
+<p>Ao apertar <strong>ENTER</strong>, será solicitado que confirme o desejo de continuar a conexão e informe a senha.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Digite <code>yes</code> e a senha fornecida pelo professor!</p>
+</div>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>ssh<span class="w"> </span>boss@3.145.1.241
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">The authenticity of host &#39;3.145.1.241 (3.145.1.241)&#39; can&#39;t be established.</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="go">ED25519 key fingerprint is SHA256:EG7YpJvK8j+JLyEiw7MO055W+Aty9nMJWuAuE4hERsI.</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="go">This key is not known by any other names</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="go">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="go">Warning: Permanently added &#39;3.145.1.241&#39; (ED25519) to the list of known hosts.</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="gp gp-VirtualEnv">(boss@3.145.1.241)</span> <span class="go">Password:</span>
+</code></pre></div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Informe o <strong>IP</strong> do host. Utilize o IP fornecido pelo professor, o da imagem é apenas um exemplo
+<a class="glightbox" href="../putty.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../putty.png" /></a></p>
+<p>Clique em <strong>Open</strong> e, na próxima tela, aceite a conexão. Então, informe o usuário e senha fornecido pelo professor.</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">login as: boss</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">Keyboard-interactive authentication prompts from server:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="go">| Password:</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/03-connection/ssh_aws/exercise_1" id="exercise_1_0">
+<p class="admonition-title">Exercício 1</p>
+<form class="exercise-form">
+<p>Garanta que conseguiu realizar os passos acima, e obtem uma mensagem que indique que a conexão <strong>SSH</strong> foi realizada, semelhante a:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 6.5.0-1018-aws x86_64)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">* Documentation:  https://help.ubuntu.com</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">* Management:     https://landscape.canonical.com</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="go">* Support:        https://ubuntu.com/pro</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="go">System information as of Wed May  1 14:13:46 UTC 2024</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="go">System load:  0.0               Processes:             99</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="go">Usage of /:   21.0% of 7.57GB   Users logged in:       0</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="go">Memory usage: 23%               IPv4 address for ens5: 172.31.9.133</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="go">Swap usage:   0%</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="go">Expanded Security Maintenance for Applications is not enabled.</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="go">0 updates can be applied immediately.</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="go">Enable ESM Apps to receive additional future security updates.</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="go">See https://ubuntu.com/esm or run: sudo pro status</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="go">Last login: Sun May  5 14:13:47 2024 from 188.100.72.121</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="go">To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="go">See &quot;man sudo_root&quot; for details.</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="gp">boss@ip-172-31-9-133:~$ </span>
+</code></pre></div>
+</div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div>
+<div class="ah-progress-container"><button class="ah-button ah-button--primary progress" id="prog-0"> Continuar </button></div>
+</div>
+</section>
+<section class="progress-section">
+<h2 id="primeiros-comandos">Primeiros comandos</h2>
+<p>Agora você está conectado em um computador hospedado na nuvem da AWS. Todos os comandos que você enviar no terminal serão executados nesta máquina que estamos acessando remotamente.</p>
+<div class="admonition tip">
+<p class="admonition-title">Dica 1</p>
+<p>Caso você fique alguns minutos sem interagir com o terminal, pode ser que a conexão seja perdida.</p>
+<p>Neste caso, basta fechar o terminal e realizar a conexão novamente!</p>
+</div>
+<p>Vamos conferir alguns comandos básicos de terminal!</p>
+<h3 id="envio-de-mensagens">Envio de mensagens</h3>
+<p>O comando <code>echo</code> é utilizado para exibir informações na saída padrão, geralmente no console. Ele recebe um ou mais argumentos de texto e simplesmente os imprime na tela!</p>
+<div class="admonition exercise self-progress" data-slug="modules/03-connection/ssh_aws/exercise_2" id="exercise_2_0">
+<p class="admonition-title">Exercício 2</p>
+<form class="exercise-form">
+<p>Envie uma mensagem, como no exemplo:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Olá mundo!&quot;</span>
+</code></pre></div>
+</div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Dica 2</p>
+<p>Você pode utilizar as setas para cima e para baixo do teclado para consultar o histórico dos últimos comandos enviados.</p>
+<p>Assim, caso queira enviar novamente uma mensagem, basta teclar a seta para cima e editar!</p>
+</div>
+<h3 id="limpar-a-tela">Limpar a tela</h3>
+<p>O comando "clear" no Linux é utilizado para limpar a tela do terminal, removendo todo o conteúdo anterior e deixando-a em branco, proporcionando uma visão limpa para o usuário.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><code>clear</code> é um comando útil para melhorar a legibilidade e organizar a exibição das informações no console.</p>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/03-connection/ssh_aws/exercise_3" id="exercise_3_0">
+<p class="admonition-title">Exercício 3</p>
+<form class="exercise-form">
+<p>Após ter feito vários <code>echo</code>, envie um <code>clear</code>:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>clear
+</code></pre></div>
+</div>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<h3 id="monitorar-sistema">Monitorar sistema</h3>
+<p>O comando <code>htop</code> no Linux é uma ferramenta interativa de monitoramento de processos em tempo real. Ele exibe uma visão detalhada da utilização da CPU, memória, processos em execução e outras informações relevantes de forma intuitiva e colorida, permitindo que os usuários tenham um controle mais eficiente e visual sobre o desempenho do sistema.</p>
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/03-connection/ssh_aws/short_1" id="short_1_0">
+<p class="admonition-title">Exercício 4<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>Utilize o comando <code>htop</code>:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>htop
+</code></pre></div>
+</div>
+<p>Você consegue identificar o tamanho da memória RAM e quantos vCPUs a máquina virtual possui?</p>
+<div class="form-elements">
+<input type="text" value="" name="data"/>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p>Dois vCPUs: eles estão identificados por 0 e 1 na parte superior da tela.</p>
+<p>Algo próximo a 1GB de memória RAM: deve ter disponível pouco mais de 900MB na terceira linha da tela (Mem).</p>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Dica 3</p>
+<p>Aperte <strong>CTRL + C</strong> para fechar o <code>htop</code>!</p>
+</div>
+<p>Esta é uma referência da execução do HTOP:</p>
+<script src="https://asciinema.org/a/42GN1XTHVhgpF36xecfrTSl7Y.js" id="asciicast-657885" async="true"></script>
+
+
+</section>
+          
+        
+      </main>
+      <footer class="ah-footer ah-typeset">
+        <div class="ah-footer-nav">
+          
+            <a href="../../02-install/install_ssh/"
+               class="ah-prev"
+               title="02 - Instalação SSH">
+              <span class="nav-label">Anterior</span>
+              <span class="nav-title">02 - Instalação SSH</span>
+            </a>
+          
+          
+            <a href="../../04-folders/files_folders/"
+               class="ah-next"
+               title="04 - Arquivos e Pastas">
+              <span class="nav-label">Próximo</span>
+              <span class="nav-title">04 - Arquivos e Pastas</span>
+            </a>
+          
+        </div>
+      </footer>
+    </div>
+    
+      <script src="../../../js/tabs.js"></script><script src="../../../js/termynal.js"></script><script src="../../../js/custom.js"></script><script src="../../../termynal.js"></script>
+    
+  <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
