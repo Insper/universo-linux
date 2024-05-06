@@ -130,7 +130,7 @@
             
             
               <li class="ah-toc-item">
-                <a href="#realizar-conexao">Realizar conexão.</a>
+                <a href="#realizar-conexao">Realizar conexão</a>
               </li>
             
               <li class="ah-toc-item">
@@ -194,6 +194,7 @@
 <h1 id="conexao-ssh-com-uma-maquina-virtual-na-aws">Conexão SSH com uma Máquina Virtual na AWS</h1>
 <p>Agora que temos o cliente <strong>SSH</strong> instalado em nossos computadores, vamos utilizar o <strong>SSH</strong> para acessar uma <strong>máquina virtual</strong> Linux hospedada na AWS (serviços de computação em nuvem da Amazon).</p>
 <p><a class="glightbox" href="../../02-install/ssh.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../02-install/ssh.jpg" /></a></p>
+<p>Nesta aula, iremos aprender a utilizar alguns comandos do Linux. Os comandos enviados serão todos executados nesta máquina remota (acessada por <code>ssh</code>).</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Caso ainda não tenha recebido as informações de acesso, pergunte ao professor:</p>
@@ -212,7 +213,7 @@
 <li>Acesso remoto a máquinas.</li>
 </ul>
 </div>
-<h2 id="realizar-conexao">Realizar conexão.</h2>
+<h2 id="realizar-conexao">Realizar conexão</h2>
 <p>Vamos realizar a conexão SSH. Para isto, será importante você lembrar se realizou a instação do cliente SSH:</p>
 <ul>
 <li>Direto no Windows (Opção 1):<ul>
@@ -226,8 +227,13 @@
 </ul>
 <div class="admonition danger">
 <p class="admonition-title">Atenção!</p>
-<p>Em todas as etapas da aula, substitua o IP <code>3.145.1.241</code> pelo IP do host fornecido pelo professor.</p>
+<p>Em todas as etapas da aula, substitua o <strong>IP</strong> <code>3.145.1.241</code> pelo IP do host fornecido pelo professor.</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>O endereço <strong>IP</strong> (do inglês <em>Internet Protocol</em>) é como um endereço único atribuído a cada dispositivo conectado à internet. Assim como uma casa tem um endereço para receber correspondências, um dispositivo tem um endereço IP para enviar e receber dados na internet.</p>
+</div>
+<p>Utilize abaixo a opção adequada, conforme sua instalação:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Opção 1: terminal</label><label for="__tabbed_1_2">Opção 2: PuTTY</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -292,7 +298,7 @@
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="go">See https://ubuntu.com/esm or run: sudo pro status</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="go">Last login: Sun May  5 14:13:47 2024 from 188.100.72.121</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="go">Last login: Wed May  1 14:13:47 2024 from 181.102.71.125</span>
 <a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="go">To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.</span>
 <a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="go">See &quot;man sudo_root&quot; for details.</span>
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
@@ -317,9 +323,9 @@
 <p>Caso você fique alguns minutos sem interagir com o terminal, pode ser que a conexão seja perdida.</p>
 <p>Neste caso, basta fechar o terminal e realizar a conexão novamente!</p>
 </div>
-<p>Vamos conferir alguns comandos básicos de terminal!</p>
-<h3 id="envio-de-mensagens">Envio de mensagens</h3>
-<p>O comando <code>echo</code> é utilizado para exibir informações na saída padrão, geralmente no console. Ele recebe um ou mais argumentos de texto e simplesmente os imprime na tela!</p>
+<p>Vamos aprender alguns comandos básicos de terminal!</p>
+<h3 id="envio-de-mensagens-de-texto">Envio de mensagens de texto</h3>
+<p>O comando <code>echo</code> é utilizado para exibir informações na <strong>saída padrão</strong>, geralmente no console. Ele recebe um ou mais argumentos de texto e simplesmente os imprime na tela!</p>
 <div class="admonition exercise self-progress" data-slug="modules/03-connection/ssh_aws/exercise_2" id="exercise_2_0">
 <p class="admonition-title">Exercício 2</p>
 <form class="exercise-form">
@@ -340,7 +346,7 @@
 <p>Assim, caso queira enviar novamente uma mensagem, basta teclar a seta para cima e editar!</p>
 </div>
 <h3 id="limpar-a-tela">Limpar a tela</h3>
-<p>O comando "clear" no Linux é utilizado para limpar a tela do terminal, removendo todo o conteúdo anterior e deixando-a em branco, proporcionando uma visão limpa para o usuário.</p>
+<p>O comando <code>clear</code> no Linux é utilizado para limpar a tela do terminal, removendo todo o conteúdo anterior e deixando-a em branco, proporcionando uma visão limpa para o usuário.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p><code>clear</code> é um comando útil para melhorar a legibilidade e organizar a exibição das informações no console.</p>
@@ -361,7 +367,7 @@
 </div>
 <h3 id="monitorar-sistema">Monitorar sistema</h3>
 <p>O comando <code>htop</code> no Linux é uma ferramenta interativa de monitoramento de processos em tempo real. Ele exibe uma visão detalhada da utilização da CPU, memória, processos em execução e outras informações relevantes de forma intuitiva e colorida, permitindo que os usuários tenham um controle mais eficiente e visual sobre o desempenho do sistema.</p>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/03-connection/ssh_aws/short_1" id="short_1_0">
+<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/03-connection/ssh_aws/short_1" id="short_1_0">
 <p class="admonition-title">Exercício 4<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Utilize o comando <code>htop</code>:</p>
