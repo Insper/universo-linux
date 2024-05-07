@@ -244,8 +244,21 @@ Para isto, utilize no terminal:
         Caso não queira ver vídeos (ou esteja sem fone), algumas sugestões de tutoriais em formato texto são [**tutorial vim 3**](https://br-linux.org/artigos/vim_intro.htm) e [**tutorial vim 4**](https://www.inf.ufpr.br/gregio/CI1056/TutorialVIM.pdf).
 
     !!! tip
-        Para adicionar imagem, podemos fazer algo como
-        `<img src="https://images.nationalgeographic.org/image/upload/v1639146339/EducationHub/photos/pillars-of-creation.jpg">`
+        Para adicionar uma imagem, podemos adicionar a ao texto da página:
+
+        `<img src="caminho_imagem">`
+
+        onde `caminho_imagem` representa o localizador de alguma imagem.
+
+        Por exemplo:
+
+        <style>
+        small {
+            font-size: 60%;
+        }
+        </style>
+
+        <small>`<img src="https://images.nationalgeographic.org/image/upload/v1639146339/EducationHub/photos/pillars-of-creation.jpg">`</small>
 
     Veja o processo de edição:
     
@@ -254,7 +267,6 @@ Para isto, utilize no terminal:
     E o resultado:
 
     ![](nginx_edit.png)
-    
 
 ## Referências
 - https://images.nationalgeographic.org/image/upload/v1639146339/EducationHub/photos/pillars-of-creation.jpg
