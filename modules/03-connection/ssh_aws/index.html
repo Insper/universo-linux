@@ -365,14 +365,68 @@
 </div>
 </form>
 </div>
+<h3 id="sobre-o-sistema">Sobre o sistema</h3>
+<p>Para verificar informações sobre a distribuição do <strong>Ubuntu</strong> em uso (sistema operacional), você pode utilizar o comando <code>lsb_release</code>.</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>lsb_release<span class="w"> </span>-d
+</code></pre></div>
+
+</div>
+<p><br></p>
+<div class="admonition exercise self-progress" data-slug="modules/03-connection/ssh_aws/exercise_4" id="exercise_4_0">
+<p class="admonition-title">Exercício 4</p>
+<form class="exercise-form">
+<p>Teste o comando <code>lsb_release</code></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Dica 3</p>
+<p>Caso fique em dúvida sobre como utilizar um comando, você pode <strong>pedir ajuda</strong> adicionando <code>--help</code> ao final do comando. Por exemplo:</p>
+<div class="termy">
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span>lsb_release<span class="w"> </span>--help
+</code></pre></div>
+<p></div>
+<br></p>
+</div>
+<div class="admonition exercise self-progress" data-slug="modules/03-connection/ssh_aws/exercise_5" id="exercise_5_0">
+<p class="admonition-title">Exercício 5</p>
+<form class="exercise-form">
+<p>Teste o comando <code>lsb_release --help</code></p>
+<div class="form-elements">
+<input type="hidden" name="data" value="OK" />
+<input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
+</div>
+</form>
+</div>
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/03-connection/ssh_aws/short_1" id="short_1_0">
+<p class="admonition-title">Exercício 6<button class="editable-button"></button></p>
+<form class="exercise-form">
+<p>O que faz o comando <code>lsb_release -a</code>?</p>
+<p>Esta informação está ho <em>help</em>!</p>
+<div class="form-elements">
+<input type="text" value="" name="data"/>
+
+<input class="ah-button ah-button--primary" type="submit" value="Enviar"/>
+</div>
+</form>
+<div class="admonition answer no-indent">
+<p class="admonition-title">Resposta</p>
+<p>Você pode utilizar o comando <code>lsb_release</code> com a opção <code>-a</code> para exibir todas as informações disponíveis!</p>
+</div>
+</div>
 <h3 id="monitorar-sistema">Monitorar sistema</h3>
 <p>O comando <code>htop</code> no Linux é uma ferramenta interativa de monitoramento de processos em tempo real. Ele exibe uma visão detalhada da utilização da CPU, memória, processos em execução e outras informações relevantes de forma intuitiva e colorida, permitindo que os usuários tenham um controle mais eficiente e visual sobre o desempenho do sistema.</p>
-<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/03-connection/ssh_aws/short_1" id="short_1_0">
-<p class="admonition-title">Exercício 4<button class="editable-button"></button></p>
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/03-connection/ssh_aws/short_2" id="short_2_0">
+<p class="admonition-title">Exercício 7<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Utilize o comando <code>htop</code>:</p>
 <div class="termy">
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>htop
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">$ </span>htop
 </code></pre></div>
 </div>
 <p>Você consegue identificar o tamanho da memória RAM e quantos vCPUs a máquina virtual possui?</p>
@@ -389,7 +443,7 @@
 </div>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">Dica 3</p>
+<p class="admonition-title">Dica 4</p>
 <p>Aperte <strong>CTRL + C</strong> para fechar o <code>htop</code>!</p>
 </div>
 <p>Esta é uma referência da execução do HTOP:</p>

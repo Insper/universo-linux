@@ -199,7 +199,7 @@
 <p>Vamos entender como funcionam as estruturas de arquivos e pastas no Linux.</p>
 <h2 id="listar-arquivos-e-pastas">Listar arquivos e pastas</h2>
 <p>Para listar os arquivos e pasta, podemos utilizar os comandos <code>ls</code> e <code>dir</code>.</p>
-<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/short_1" id="short_1_0">
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/04-folders/files_folders/short_1" id="short_1_0">
 <p class="admonition-title">Exercício 1<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Utilize os comandos <code>ls</code> e <code>dir</code>. O que acontece?</p>
@@ -222,7 +222,7 @@
 </div>
 </div>
 <h2 id="redirecionar-saida-criar-arquivo-de-texto">Redirecionar saída: Criar arquivo de texto</h2>
-<p>Quando utilizamos o comando <code>echo</code> as mensagens são direcionadas para a <strong>saída padrão</strong> (tela, terminal, console). Podemos utilizar o <code>&gt;</code> para que as informações sejam escritas em um arquivo ao invés de exibidas na tela. Tente fazer:</p>
+<p>Quando utilizamos o comando <code>echo</code> as mensagens são direcionadas para a <strong>saída padrão</strong> (tela, terminal, console). Podemos utilizar o sinal de maior "<code>&gt;</code>" para que as informações sejam escritas em um arquivo ao invés de exibidas na tela. Tente fazer:</p>
 <div class="termy">
 
     <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Este é meu primeiro a arquivo!&quot;</span>
@@ -278,7 +278,10 @@
 </code></pre></div>
 <p></div>
 <br></p>
-<p>Perceba que o arquivo <code>cartao.txt</code> não existe mais!</p>
+<div class="admonition danger">
+<p class="admonition-title">Atenção</p>
+<p>Perceba que o arquivo <code>cartao.txt</code> não existe mais (conforme esperado)!</p>
+</div>
 </div>
 <div class="admonition exercise self-progress" data-slug="modules/04-folders/files_folders/exercise_1" id="exercise_1_0">
 <p class="admonition-title">Exercício 2</p>
@@ -287,10 +290,11 @@
 <div class="termy">
 <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Meu nome é Maciel, criado em 01-05-2024&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>info.txt
 </code></pre></div>
-</div>
+<p></div>
+<br></p>
 <div class="admonition tip">
 <p class="admonition-title">Dica 3</p>
-<p>Ao invés de copiar os comandos deste site, leia e digite-os você mesmo no terminal!</p>
+<p>Ao invés de copiar os comandos deste site, leia e digite-os no terminal!</p>
 </div>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
@@ -319,7 +323,7 @@
 <br></p>
 </div>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/04-folders/files_folders/long_2" id="long_2_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/long_2" id="long_2_0">
 <p class="admonition-title">Exercício 4<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Agora, execute novamente o comando para salvar uma mensagem em <code>info.txt</code>, mas com uma mensagem diferente. O que acontece?</p>
@@ -338,7 +342,7 @@
 <p>O arquivo é <strong>sobrescrito</strong>, a mensagem anterior é perdida e apenas a última mensagem é salva!</p>
 </div>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/04-folders/files_folders/long_3" id="long_3_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/long_3" id="long_3_0">
 <p class="admonition-title">Exercício 5<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Execute múltiplas vezes o comando para salvar mensagens em <code>hello.txt</code> (com uma mensagem diferente a cada execução), mas utilizando <code>&gt;&gt;</code> ao invés de <code>&gt;</code>:</p>
@@ -356,7 +360,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Dica 6</p>
-<p>Ao invés de copiar os comandos deste site, leia e digite-os você mesmo no terminal!</p>
+<p>Ao invés de copiar os comandos deste site, leia e digite-os no terminal!</p>
 </div>
 <div class="form-elements">
 <div class="grow-wrap"><textarea name="data"></textarea></div>
@@ -433,7 +437,7 @@
 <p class="admonition-title">Info</p>
 <p>O <code>pwd</code> é útil para verificar em qual diretório você está localizado no momento!</p>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/04-folders/files_folders/long_4" id="long_4_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/long_4" id="long_4_0">
 <p class="admonition-title">Exercício 7<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Você conseguiria explicar o que significa <strong>"diretório raiz"</strong>?</p>
@@ -453,7 +457,7 @@
 </div>
 </div>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/04-folders/files_folders/long_5" id="long_5_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/long_5" id="long_5_0">
 <p class="admonition-title">Exercício 8<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Utilize o comando <code>pwd</code>. O que é exibido? Explique.</p>
@@ -507,27 +511,49 @@
 </div>
 </div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Dica 9</p>
+<p>Você pode utilizar o comando <code>rm -r nome_pasta</code> para <strong>remover</strong> uma pasta:
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">$ </span>mkdir<span class="w"> </span>uma_pasta_qualquer
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="gp">$ </span>rm<span class="w"> </span>-rf<span class="w"> </span>uma_pasta_qualquer
+</code></pre></div>
+<p></div>
+<br></p>
+<p>Para arquivos, você pode remover sem utilizar o <code>-r</code> no comando.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Dica 10</p>
+<p>Você pode utilizar o comando <code>mv nome_antigo novo_nome</code> para <strong>renomear</strong> arquivos e pastas:
+<div class="termy"></p>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">$ </span>mkdir<span class="w"> </span>uma_pasta_qualquer
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="gp">$ </span>mv<span class="w"> </span>uma_pasta_qualquer<span class="w"> </span>minha_pasta_favorita
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="gp">$ </span>ls
+</code></pre></div>
+<p></div>
+<br></p>
+</div>
 <p>Vamos listar de forma diferente, utilizando o comando <code>ls -l</code>:</p>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-l
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">total 16</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="go">drwxrwxr-x 2 boss boss 4096 May  1 16:12 documentos</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">-rw-rw-r-- 1 boss boss   27 May  1 15:38 hello.txt</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="go">-rw-rw-r-- 1 boss boss   41 May  1 15:27 info.txt</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="go">-rw-rw-r-- 1 boss boss   32 May  1 15:21 mensagem.txt</span>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">$ </span>ls<span class="w"> </span>-l
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="go">total 16</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="go">drwxrwxr-x 2 boss boss 4096 May  1 16:12 documentos</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="go">-rw-rw-r-- 1 boss boss   27 May  1 15:38 hello.txt</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="go">-rw-rw-r-- 1 boss boss   41 May  1 15:27 info.txt</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="go">-rw-rw-r-- 1 boss boss   32 May  1 15:21 mensagem.txt</span>
 </code></pre></div>
 
 </div>
 <p><br></p>
 <p>Perceba que a linha da pasta documentos inicia com <code>"d"</code>. Isto indica que ela é um diretório.</p>
-<p>Note as duas colunas contendo <code>boss boss</code>. As colunas <code>"boss boss"</code> se referem ao proprietário e ao grupo proprietário dos arquivos e diretórios listados.</p>
+<p>Note as duas colunas contendo <code>boss boss</code>. As colunas <code>"boss boss"</code> se referem ao <strong>proprietário</strong> e ao <strong>grupo</strong> proprietário dos arquivos e diretórios listados.</p>
 <h3 id="acessar-pastas">Acessar pastas</h3>
 <p>No terminal, podemos navegar entre pastas, pois os comandos são executados em relação a pasta atual, e pode ser de interesse do usuário executar comandos em outras pastas.</p>
 <p>Para entrar na recém criada pasta <code>documentos</code>, fazemos uso do comando <code>cd</code>:</p>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>documentos
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>documentos
 </code></pre></div>
 
 </div>
@@ -536,12 +562,12 @@
 <p>Ao dar um <code>ls</code>, note que nada é retornado, pois a pasta acabou de ser criada e está vazia:</p>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp">$ </span>ls
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">$ </span>ls
 </code></pre></div>
 
 </div>
 <p><br></p>
-<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/short_6" id="short_6_0">
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/04-folders/files_folders/short_6" id="short_6_0">
 <p class="admonition-title">Exercício 10<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Com qual comando posso garantir que estou na pasta correta?</p>
@@ -554,8 +580,8 @@
 <div class="admonition answer no-indent">
 <p class="admonition-title">Resposta</p>
 <div class="termy">
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="go">/home/boss/documentos</span>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="go">/home/boss/documentos</span>
 </code></pre></div>
 <p></div>
 <br></p>
@@ -564,13 +590,13 @@
 <p>Agora tente utilizar:</p>
 <div class="termy">
 
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>..
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>..
 </code></pre></div>
 
 </div>
 <p><br></p>
 <p>Com <code>cd ..</code> podemos subir um nível na hierarquia de diretórios. Ou seja, estando em <code>/home/boss/documentos</code>, ao fazer <code>cd ..</code> voltamos para o diretório <code>boss</code>.</p>
-<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/short_7" id="short_7_0">
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/04-folders/files_folders/short_7" id="short_7_0">
 <p class="admonition-title">Exercício 11<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>O que acontece se realizarmos novamente <code>cd ..</code>?</p>
@@ -584,32 +610,32 @@
 <p class="admonition-title">Resposta</p>
 <p>Vamos para <code>/home</code>:</p>
 <div class="termy">
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="go">/home/boss</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>..
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="go">/home</span>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="go">/home/boss</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="go">/home</span>
 </code></pre></div>
 <p></div>
 <br></p>
 </div>
 </div>
 <p>Com o <code>cd</code>, também podemos passar mais de uma pasta, navegando mais de um nível em apenas um comando. Por exemplo:</p>
-<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/short_8" id="short_8_0">
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/04-folders/files_folders/short_8" id="short_8_0">
 <p class="admonition-title">Exercício 12<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Confira que está em <code>/home</code>:</p>
 <div class="termy">
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="go">/home</span>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="go">/home</span>
 </code></pre></div>
 <p></div>
 <br></p>
 <p>Então, faça:</p>
 <div class="termy">
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>boss/documentos
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="go">/home/boss/documentos</span>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>boss/documentos
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="go">/home/boss/documentos</span>
 </code></pre></div>
 <p></div>
 <br></p>
@@ -624,11 +650,11 @@
 <p>Também podemos fazer a navegação passando o caminho completo, a partir da raiz:</p>
 <div class="termy">
 
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="go">/home/boss/documentos</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/home
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="go">/home</span>
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="go">/home/boss/documentos</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/home
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="go">/home</span>
 </code></pre></div>
 
 </div>
@@ -636,7 +662,7 @@
 <p>Perceba que com <code>cd /home</code> fomos direto para esta pasta.</p>
 <h3 id="exercicios">Exercícios</h3>
 <h4 id="documentos">Documentos</h4>
-<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/short_9" id="short_9_0">
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/04-folders/files_folders/short_9" id="short_9_0">
 <p class="admonition-title">Exercício 13<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Volte para <code>/home/boss/documentos</code> utilizando <code>cd</code> com o caminho completo.</p>
@@ -649,22 +675,22 @@
 <div class="admonition answer no-indent">
 <p class="admonition-title">Resposta</p>
 <div class="termy">
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="go">/home</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/home/boss/documentos
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="go">/home/boss/documentos</span>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="go">/home</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>/home/boss/documentos
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="go">/home/boss/documentos</span>
 </code></pre></div>
 <p></div>
 <br></p>
 </div>
 </div>
-<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/04-folders/files_folders/long_10" id="long_10_0">
+<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/long_10" id="long_10_0">
 <p class="admonition-title">Exercício 14<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Em <code>/home/boss/documentos</code> (ou seja, dentro da pasta de documentos), crie um arquivo chamado <code>livros.txt</code>. Escreva nele nome de alguns livros que você gostaria de ler!</p>
 <div class="admonition tip">
-<p class="admonition-title">Dica 9</p>
+<p class="admonition-title">Dica 11</p>
 <p>Se você quiser, pode listar aqui os comandos! Eles ficarão salvos e no futuro você pode acessar a página deste curso e ver suas respostas!</p>
 </div>
 <div class="form-elements">
@@ -676,17 +702,17 @@
 <div class="admonition answer no-indent">
 <p class="admonition-title">Resposta</p>
 <div class="termy">
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="go">/home/boss/documentos</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;O guia do mochileiro das galáxias&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>livros.txt
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Alice no país das maravilhas&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>livros.txt
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Duna&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>livros.txt
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="go">/home/boss/documentos</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;O guia do mochileiro das galáxias&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>livros.txt
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Alice no país das maravilhas&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>livros.txt
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Duna&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>livros.txt
 </code></pre></div>
 <p></div>
 <br></p>
 </div>
 </div>
-<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/04-folders/files_folders/short_11" id="short_11_0">
+<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/04-folders/files_folders/short_11" id="short_11_0">
 <p class="admonition-title">Exercício 15<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Exiba o conteúdo do arquivo <code>livros.txt</code>!</p>
@@ -699,14 +725,14 @@
 <div class="admonition answer no-indent">
 <p class="admonition-title">Resposta</p>
 <div class="termy">
-<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="go">/home/boss/documentos</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="gp">$ </span>ls
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="go">livros.txt</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="gp">$ </span>cat<span class="w"> </span>livros.txt
-<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="go">O guia do mochileiro das galáxias</span>
-<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="go">Alice no país das maravilhas</span>
-<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="go">Duna</span>
+<div class="language-console highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="go">/home/boss/documentos</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="gp">$ </span>ls
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="go">livros.txt</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="gp">$ </span>cat<span class="w"> </span>livros.txt
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="go">O guia do mochileiro das galáxias</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="go">Alice no país das maravilhas</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="go">Duna</span>
 </code></pre></div>
 <p></div>
 <br></p>
@@ -771,9 +797,9 @@
 <p>Estando em <code>/home/boss/downloads</code>, execute o comando:</p>
 <div class="termy">
 
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="go">/home/boss/downloads</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="gp">$ </span>wget<span class="w"> </span>https://atd-insper.s3.us-east-2.amazonaws.com/aula04/alice_wonderland.txt
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="go">/home/boss/downloads</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="gp">$ </span>wget<span class="w"> </span>https://atd-insper.s3.us-east-2.amazonaws.com/aula04/alice_wonderland.txt
 </code></pre></div>
 
 </div>
@@ -781,8 +807,8 @@
 <p>Liste os arquivos existentes, você verá que um novo arquivo foi criado!</p>
 <div class="termy">
 
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="gp">$ </span>ls
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="go">alice_wonderland.txt</span>
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="gp">$ </span>ls
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="go">alice_wonderland.txt</span>
 </code></pre></div>
 
 </div>
@@ -800,36 +826,41 @@
 <div class="admonition exercise self-progress" data-slug="modules/04-folders/files_folders/exercise_11" id="exercise_11_0">
 <p class="admonition-title">Exercício 22</p>
 <form class="exercise-form">
-<p>Estando em <code>/home/boss/downloads</code>, faça o download da calculadora pela URL <em><a href="https://atd-insper.s3.us-east-2.amazonaws.com/aula04/alice_wonderland.txt">https://atd-insper.s3.us-east-2.amazonaws.com/aula04/alice_wonderland.txt</a></em>:</p>
+<p>Estando em <code>/home/boss/downloads</code>, faça o download da calculadora pela URL <em><a href="https://universo-linux.s3.us-east-2.amazonaws.com/calculadora">https://universo-linux.s3.us-east-2.amazonaws.com/calculadora</a></em></p>
 <div class="form-elements">
 <input type="hidden" name="data" value="OK" />
 <input class="ah-button ah-button--primary" type="submit" name="Enviar" value="Marcar como feito" />
 </div>
 </form>
 </div>
-<p>Vamos tentar executar a calculadora. Para isto, basta chamar <code>./calculadora</code> no terminal:</p>
-<div class="termy">
-
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="gp">$ </span>./calculadora
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="go">-bash: ./calculadora: Permission denied</span>
-</code></pre></div>
-
-</div>
-<p><br></p>
-<p>Isto não irá funcionar! Precisamos permitir que a calculadora possa ser executada com o comando <code>chmod</code>:</p>
-<div class="termy">
-
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="go">/home/boss/downloads</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>calculadora
-</code></pre></div>
-
-</div>
-<p><br></p>
-<p>Tente novamente executar a calculadora:</p>
+<p>Vamos tentar executar a <strong>calculadora</strong>. Para isto, basta chamar <code>./calculadora</code> no terminal:</p>
 <div class="termy">
 
     <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gp">$ </span>./calculadora
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="go">-bash: ./calculadora: Permission denied</span>
+</code></pre></div>
+
+</div>
+<p><br></p>
+<p>Isto não irá funcionar! Será necessário <strong>permitir</strong> que a calculadora possa <strong>ser executada</strong>. Podemos fazer isto com o comando <code>chmod</code>:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="gp">$ </span><span class="nb">pwd</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="go">/home/boss/downloads</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="gp">$ </span>chmod<span class="w"> </span>+x<span class="w"> </span>calculadora
+</code></pre></div>
+
+</div>
+<p><br></p>
+<div class="admonition tip">
+<p class="admonition-title">Dica 12</p>
+<p>Utilizamos <code>chmod +x</code> para dar permissão de execução</p>
+<p>Utilizamos <code>chmod -x</code> para remover permissão de execução</p>
+</div>
+<p>Tente novamente executar a calculadora:</p>
+<div class="termy">
+
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="gp">$ </span>./calculadora
 </code></pre></div>
 
 </div>
@@ -837,7 +868,7 @@
 <p>Agora somos informado da necessidade de passar dois números após o comando! Vamos fazer:</p>
 <div class="termy">
 
-    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="gp">$ </span>./calculadora<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">20</span>
+    <div class="language-console highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="gp">$ </span>./calculadora<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">20</span>
 </code></pre></div>
 
 </div>
