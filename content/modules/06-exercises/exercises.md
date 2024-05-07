@@ -34,4 +34,4 @@
     Exiba o conteúdo de cada arquivo em cada dia.
 
 !!! exercise
-    Exiba a árvore de arquivos.
+    Exiba a árvore de arquivos completa a partir de `/home/boss`.

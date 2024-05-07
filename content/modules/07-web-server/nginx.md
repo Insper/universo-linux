@@ -157,6 +157,12 @@ Utilize o comando `ls -l /var/www/html` para listar o conteúdo desta pasta:
 
 Vamos copiar o arquivo `alice_wonderland.txt` para a pasta `/var/www/html` e verificar se conseguimos disponibilizar acesso a ele!
 
+!!! tip
+    Para copiar arquivos, utilizamos o comando `cp origem destino` , onde:
+    
+    - `origem` representa o arquivo a ser copiado
+    - `destino` representa para onde queremos copiar
+
 Para isto, utilize no terminal:
 
 !!! info
@@ -175,7 +181,6 @@ Para isto, utilize no terminal:
 </div>
 <br>
 
-
 !!! exercise
     Acesse novamente, no seu navegador `http://3.145.1.241/alice_wonderland.txt`.
 
@@ -188,6 +193,14 @@ Para isto, utilize no terminal:
 
 !!! info
     Pronto! Agora o arquivo `alice_wonderland.txt` está está disponível para todas as pessoas que tiverem o endereço IP da máquina!
+
+!!! tip
+    Para **copiar pastas**, utilizamos o comando `cp -r origem destino` , onde:
+    
+    - `origem` representa a pasta a ser copiada
+    - `destino` representa para onde queremos copiar
+
+    O `-r` faz com que a pasta seja copiada *recursivamente*, ou seja, tudo que está dentro dela também será copiado.
 
 ## Exercícios
 

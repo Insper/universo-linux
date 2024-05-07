@@ -324,6 +324,9 @@ $ mkdir documentos
     </div>
     <br>
 
+    !!! info
+        O comando `mv` também pode ser utilizado para **mover** arquivos e pastas.
+
 Vamos listar de forma diferente, utilizando o comando `ls -l`:
 
 <div class="termy">
@@ -564,6 +567,22 @@ Estando em `/home/boss/downloads`, execute o comando:
 </div>
 <br>
 
+
+!!! tip
+    Caso o `pwd` retorne algo diferente de `/home/boss/downloads`, ou seja, se você não estiver na pasta correta, execute o comando `cd /home/boss/downloads`:
+
+    <div class="termy">
+
+    ```console
+    $ cd /home/boss/downloads
+    $ pwd
+    /home/boss/downloads
+    $ wget https://atd-insper.s3.us-east-2.amazonaws.com/aula04/alice_wonderland.txt
+    ```
+
+    </div>
+    <br>
+
 Liste os arquivos existentes, você verá que um novo arquivo foi criado!
 
 <div class="termy">
@@ -580,9 +599,17 @@ Liste os arquivos existentes, você verá que um novo arquivo foi criado!
     Exiba o conteúdo de `alice_wonderland.txt`.
 
 !!! exercise
-    Estando em `/home/boss/downloads`, faça o download da calculadora pela URL *https://universo-linux.s3.us-east-2.amazonaws.com/calculadora*
+    Estando em `/home/boss/downloads`, utilize `wget` para fazer o download da calculadora, que está na URL *https://universo-linux.s3.us-east-2.amazonaws.com/calculadora*
 
-Vamos tentar executar a **calculadora**. Para isto, basta chamar `./calculadora` no terminal:
+    !!! info
+        Você precisa fazer o download na **máquina virtual**. Não é para clicar na URL, o que faz um download na sua máquina.
+        
+        Copie a URL e cole no terminal após o comando `wget`.
+
+Vamos tentar executar a **calculadora**. Para isto, basta executar o comando `./calculadora` no terminal:
+
+!!! tip
+    Perceba o uso de `./` antes do nome `calculadora`
 
 <div class="termy">
 

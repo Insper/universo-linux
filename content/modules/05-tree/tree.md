@@ -21,7 +21,7 @@ Será necessário instalar o `tree`. Mas antes, precisamos descobrir os pacotes 
 O comando `sudo apt update` é usado no sistema operacional **Ubuntu** (e outras distribuições baseadas no Debian) para atualizar a lista de pacotes disponíveis nos repositórios configurados no sistema. Ele verifica se há atualizações disponíveis para os pacotes instalados e sincroniza as informações locais com os servidores de repositórios, garantindo que você tenha acesso às versões mais recentes dos pacotes.
 
 !!! info
-    `sudo` no Linux permite que um usuário execute um comando com privilégios de superusuário (`root`), fornecendo a autorização necessária para realizar **tarefas administrativas** e acessar arquivos ou comandos restritos ao usuário `root`.
+    `sudo` no Linux permite que um usuário execute um comando com privilégios de **superusuário** (`root`), fornecendo a autorização necessária para realizar **tarefas administrativas** e acessar arquivos ou comandos restritos ao usuário `root`.
 
     Ou seja, nosso usuário `boss` vai usar `sudo` quando precisar, por exemplo, instalar novos programas no Linux!
 
