@@ -279,7 +279,7 @@
 <br></p>
 </div>
 </div>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/07-web-server/nginx/short_1" id="short_1_0">
+<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/07-web-server/nginx/short_1" id="short_1_0">
 <p class="admonition-title">Exercício 2<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Acesse novamente, no seu navegador <code>http://3.145.1.241</code>.</p>
@@ -315,7 +315,7 @@
 </div>
 </form>
 </div>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/07-web-server/nginx/short_2" id="short_2_0">
+<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/07-web-server/nginx/short_2" id="short_2_0">
 <p class="admonition-title">Exercício 4<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Acesse novamente, no seu navegador <code>http://3.145.1.241</code>.</p>
@@ -348,7 +348,7 @@
 
 </div>
 <p><br></p>
-<div class="admonition exercise text short tag-text-exercise tag-short-text editable" data-slug="modules/07-web-server/nginx/short_3" id="short_3_0">
+<div class="admonition exercise text short tag-short-text tag-text-exercise editable" data-slug="modules/07-web-server/nginx/short_3" id="short_3_0">
 <p class="admonition-title">Exercício 5<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Qual usuário é dono do arquivo <code>index.nginx-debian.html</code>?</p>
@@ -363,7 +363,7 @@
 <p>O usuário <strong>root</strong>!</p>
 </div>
 </div>
-<div class="admonition exercise text long tag-long-text tag-text-exercise editable" data-slug="modules/07-web-server/nginx/long_4" id="long_4_0">
+<div class="admonition exercise text long tag-text-exercise tag-long-text editable" data-slug="modules/07-web-server/nginx/long_4" id="long_4_0">
 <p class="admonition-title">Exercício 6<button class="editable-button"></button></p>
 <form class="exercise-form">
 <p>Liste o conteúdo do arquivo <code>index.nginx-debian.html</code>.</p>
@@ -382,6 +382,14 @@
 </div>
 <h3 id="servir-alice-no-pais-das-maravilhas">Servir Alice no País das Maravilhas!</h3>
 <p>Vamos copiar o arquivo <code>alice_wonderland.txt</code> para a pasta <code>/var/www/html</code> e verificar se conseguimos disponibilizar acesso a ele!</p>
+<div class="admonition tip">
+<p class="admonition-title">Dica 2</p>
+<p>Para copiar arquivos, utilizamos o comando <code>cp origem destino</code> , onde:</p>
+<ul>
+<li><code>origem</code> representa o arquivo a ser copiado</li>
+<li><code>destino</code> representa para onde queremos copiar</li>
+</ul>
+</div>
 <p>Para isto, utilize no terminal:</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -418,6 +426,15 @@
 <p class="admonition-title">Info</p>
 <p>Pronto! Agora o arquivo <code>alice_wonderland.txt</code> está está disponível para todas as pessoas que tiverem o endereço IP da máquina!</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Dica 3</p>
+<p>Para <strong>copiar pastas</strong>, utilizamos o comando <code>cp -r origem destino</code> , onde:</p>
+<ul>
+<li><code>origem</code> representa a pasta a ser copiada</li>
+<li><code>destino</code> representa para onde queremos copiar</li>
+</ul>
+<p>O <code>-r</code> faz com que a pasta seja copiada <em>recursivamente</em>, ou seja, tudo que está dentro dela também será copiado.</p>
+</div>
 <h2 id="exercicios">Exercícios</h2>
 <h3 id="disponibilizar-e-remover">Disponibilizar e remover</h3>
 <div class="admonition exercise self-progress" data-slug="modules/07-web-server/nginx/exercise_4" id="exercise_4_0">
@@ -436,7 +453,7 @@
 <form class="exercise-form">
 <p>Remova da pasta <code>/var/www/html/</code> o arquivo disponibilizado no exercício anterior.</p>
 <div class="admonition tip">
-<p class="admonition-title">Dica 2</p>
+<p class="admonition-title">Dica 4</p>
 <p>Para remover, basta utilizar o comando <code>sudo rm</code>, seguido pelo <strong>caminho do arquivo</strong>.</p>
 </div>
 <p>Vamos supor que você copiou o arquivo <code>livros.txt</code>. Para remover, fazemos:</p>
@@ -460,14 +477,22 @@
 - Adicionar seu nome
 - Adicionar uma imagem:</p>
 <div class="admonition tip">
-<p class="admonition-title">Dica 3</p>
+<p class="admonition-title">Dica 5</p>
 <p>Relembrando, os links dos tutoriais são <a href="https://www.youtube.com/watch?v=95Fzh-HveQg"><strong>tutorial vim 1</strong></a> e <a href="https://www.youtube.com/watch?v=EscyTZSaHXA"><strong>tutorial vim 2</strong></a>.</p>
 <p>Caso não queira ver vídeos (ou esteja sem fone), algumas sugestões de tutoriais em formato texto são <a href="https://br-linux.org/artigos/vim_intro.htm"><strong>tutorial vim 3</strong></a> e <a href="https://www.inf.ufpr.br/gregio/CI1056/TutorialVIM.pdf"><strong>tutorial vim 4</strong></a>.</p>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">Dica 4</p>
-<p>Para adicionar imagem, podemos fazer algo como
-<code>&lt;img src="https://images.nationalgeographic.org/image/upload/v1639146339/EducationHub/photos/pillars-of-creation.jpg"&gt;</code></p>
+<p class="admonition-title">Dica 6</p>
+<p>Para adicionar uma imagem, podemos adicionar a ao texto da página:</p>
+<p><code>&lt;img src="caminho_imagem"&gt;</code></p>
+<p>onde <code>caminho_imagem</code> representa o localizador de alguma imagem.</p>
+<p>Por exemplo:</p>
+<p><style>
+small {
+    font-size: 60%;
+}
+</style></p>
+<p><small><code>&lt;img src="https://images.nationalgeographic.org/image/upload/v1639146339/EducationHub/photos/pillars-of-creation.jpg"&gt;</code></small></p>
 </div>
 <p>Veja o processo de edição:</p>
 <p><script src="https://asciinema.org/a/657950.js" id="asciicast-657950" async="true"></script></p>
