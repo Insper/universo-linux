@@ -124,8 +124,6 @@ Utilize abaixo a opção adequada, conforme sua instalação:
     </div>
 
 
-!!! progress
-
 ## Primeiros comandos
 
 Agora você está conectado em um computador hospedado na nuvem da AWS. Todos os comandos que você enviar no terminal serão executados nesta máquina que estamos acessando remotamente.

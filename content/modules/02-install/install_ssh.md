@@ -103,6 +103,10 @@ Você pode utilizar o **PuTTY** para realizar a conexão ssh. Neste caso, [**cli
 
     Feche o programa PuTTY e prossiga no material!
 
+### Instalação no iPad ou Tablet Android
+
+Caso utilize um Tablet, você pode fazer a instalação do App Termius na [**App Store para iPad**](https://apps.apple.com/br/app/termius-terminal-ssh-client/id549039908) ou [**Google Play**](https://play.google.com/store/apps/details?id=com.server.auditor.ssh.client&hl=pt_BR&gl=US).
+
 ## Referências
 - https://miro.medium.com/v2/resize:fit:699/1*bQLzdc3np51pPnvIERS1-A.jpeg
 - https://pt.wikipedia.org/wiki/Secure_Shell

@@ -206,7 +206,6 @@ Para conferir o que há dentro deste arquivo, fazemos o uso do comando `cat`:
         </div>
         <br>
 
-!!! progress
 
 ## Estrutura de arquivos e pastas
 
